@@ -59,47 +59,50 @@ In this example, the URL is:
 8- A new window will appear with all the content of the Sharepoint site
 ![Alt text](media/image-9.png)
 
-> NOTE: PowerBI will list all the files and folders in the Sharepoint site content. On this exmaple, we just have our 2 excel files in the FinanceFiles folder.
+> NOTE: PowerBI will list all the files only in the Sharepoint site content. On this exmaple, we just have our 2 excel files in the FinanceFiles folder. The next steps will enable to view the folders as well.
 
-9- Click "Transform Data" to start the Power Query Editor
+9- Click "Transform Data" button to start the Power Query Editor, you will see the following window:
 ![Alt text](media/image-11.png)
 
 10- Now focus on the PowerQuery formula bar
 ![Alt text](media/image-12.png)
 
 11- In the formula bar, you'll see the following formula:
-```
-= SharePoint.Files("https://canadadrey.sharepoint.com/sites/MyNewTeam2023/", [ApiVersion = 15])
+```powershell
+= SharePoint.Files("https://TeamsSiteName.sharepoint.com/sites/MyNewTeam2023/", [ApiVersion = 15])
 ```
 
 replace "Files" with "Contents" and validate the formula.
 
+```powershell
+= SharePoint.Contents("https://TeamsSiteName.sharepoint.com/sites/MyNewTeam2023/", [ApiVersion = 15])
 ```
-= SharePoint.Contents("https://canadadrey.sharepoint.com/sites/MyNewTeam2023/", [ApiVersion = 15])
-```
-it will look like the following in the formula bar:
+it will look like the following in the formula bar (with the name of my test tenant instead of "TeamsSiteName"):
 ![Alt text](media/image-13.png)
 
-Now you will see the list of all the files and folders in the Sharepoint site content.
+Now you will see the list of all the files, folders and elements in the Sharepoint site content:
 ![Alt text](media/image-14.png)
 
 Locate the row showing "Shared Documents":
 ![Alt text](media/image-15.png)
 
-and click on the "Table" element of the "Content" column, which will expand the content of the "Shared Documents" folder:
+and click on the "Table" item of the "Content" column, which will expand the content of the "Shared Documents" folder:
 ![Alt text](media/image-16.png)
 
-Choose the item corresponding to Teams channel where you created the folder in Part 1 above, in this example, we created the "FinanceFiles" folder on the "General" teams channel. So we'll click on the "Table" link from the "Content" column that correspond to the  "General" item from the "Name" column:
+Choose the item corresponding to Teams channel where you created the folder in Part 1 above, in this example, we created the "FinanceFiles" folder under the "General" teams channel. So we'll click on the **Table** link next to "General" (or whatever the name of your channel:
 
 ![Alt text](media/image-17.png)
 
-Here you'll see our **FinancialFiles** folder, click again on the "Table" link from the "Content" column that correspond to the "FinancialFiles" item from the "Name" column and you'll see the list of files in this folder:
+Here you'll see our **FinancialFiles** folder:
+![Alt text](media/image-29.png)
+
+click again on the **"Table"** link next to **"FinancialFiles"** and you'll see the list of files in this folder:
 ![Alt text](media/image-18.png)
 
 Click on the "Combine Files" button from the "Content" column:
 ![Alt text](media/image-19.png)
 
-it is the double-arrow button on the right of the "Content" column header:
+In case you don't see it right away, it is the double-arrow button on the right of the "Content" column header:
 
 ![Alt text](media/image-20.png)
 
