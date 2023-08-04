@@ -137,3 +137,7 @@ Start placing your visuals on the PBI canvas:
 
 
 At this point, every time you update the files or add new files (with the same structure), you can refresh the data in PowerBI, and it will automatically get the new data from the Sharepoint folder !
+
+> NOTE: I recomment you watch Wyn Hopkins' video on Youtube, which explains the same process, but with PowerQuery used in Excel: https://www.youtube.com/watch?v=-XE7HEZbQiY.
+>
+> Wyn is using a few tricks that makes the process clearer to understand, and makes it also easier to change the destination folder in case you want to move your files in a different folder  in Sharepoint.
