@@ -110,7 +110,10 @@ Wait for PowerBI to process the files, and you'll see the following window:
 ![Alt text](media/image-21.png)
 
 Select either the table ("financials" in our example), or the Sheet ("Sheet1" in our example), and click on the "OK" button
-> NOTE: all the files in your directory must have a table named "financials" or a sheet named "Sheet1" to enable PowerBI to combine the data of all the files in a single table.
+
+> **NOTE**: all the files in your directory must have a table named "financials" (if you chose to combine the tables) or a sheet named "Sheet1" (if you chose to combine the whole data on the Sheet) to enable PowerBI to combine the data of all the files in a single table.
+>
+> Same thing if you want to use  CSV files instead of Excel files, all the files must have the same headers, and the same data types for the columns.
 
 ![Alt text](media/image-22.png)
 
