@@ -12,7 +12,9 @@ If you wish to use the Sharepoint site corresponding to your a team you created 
 
 2- click on the General (or any other) channel of your team
 
-3- click on the "Files" tab of your team, then click on the "Open in Sharepoint" button.
+3- click on the "Files" tab of your team, 
+
+4- then click on the "Open in Sharepoint" button.
 
 ![Alt text](media/image-1.png)
 
@@ -20,19 +22,17 @@ This will open a browser to the corresponding Teams Sharepoint site:
 
 ![Alt text](media/image.png)
 
-From the address bar, take the base name of your site, which corresponds to the URL up to the forward slash before the word "Shared Documents". 
+> NOTE: For this example, I'll also create a folder on this site, where I'll put the files I want to use with PowerBI later:
+> ![Alt text](media/image-10.png)
+> And I will put a couple of excel files in this folder, it's important that these files have the same headers, and the same data types for our example.
+
+Now from the address bar, take the base name of your site, which corresponds to the URL up to the forward slash before the word "Shared Documents". 
 
 ![Alt text](media/image-2.png)
 
 In this example, the URL is:
 
 ```https://canadadrey.sharepoint.com/sites/MyNewTeam2023/```
-
-For this example, I'll create a folder on this site, where I'll put the files I want to use with PowerBI later.
-
-![Alt text](media/image-10.png)
-
-I will put a couple of excel files in this folder, it's important that these files have the same headers, and the same data types for our example.
 
 ## 2. Configure PowerBI to get data from the Sharepoint Folder
 
