@@ -141,6 +141,42 @@ Start placing your visuals on the PBI canvas:
 
 At this point, every time you update the files or add new files (with the same table or sheet structure), you can refresh the data in PowerBI, and it will automatically get the new data from the Sharepoint folder !
 
-> NOTE: I recomment you watch Wyn Hopkins' video on Youtube, which explains the same process, but with PowerQuery used in Excel: https://www.youtube.com/watch?v=-XE7HEZbQiY.
->
-> Wyn is using a few tricks that makes the process clearer to understand, and makes it also easier to change the destination folder in case you want to move your files in a different folder  in Sharepoint.
+## 3. To go further
+
+Although at this point you can just use your Power BI dashboard, publish it to the Power BI service, and share it with your team, you can also automate the process of refreshing the data in Power BI, but that's for another topic, which is simpler to do than the current topic.
+
+What I just wanted to show in this part, is the Advanced Query part, which enables you to change the folder directly on the Query definition, rename some variables, etc...
+
+Click on the "Advanced Editor" menu on the "Home" tab of the Power Query Editor:
+
+![Alt text](media/image-30.png)
+
+You will see the code of what we all did on Step #2 above:
+
+![Alt text](media/image-31.png)
+
+You can tweak it to change the "FinancialFiles" folder to another folder under "General", or change the name of the table or sheet you want to combine, etc...
+
+My recommendation to do so would be to copy and paste this code into your favorite text editor, change the code, and paste it back into the Advanced Editor window.
+
+```powershell
+let
+    Source = SharePoint.Contents("https://canadadrey.sharepoint.com/sites/MyNewTeam2023", [ApiVersion = 15]),
+    #"Shared Documents" = Source{[Name="Shared Documents"]}[Content],
+    General = #"Shared Documents"{[Name="General"]}[Content],
+    FinancialFiles = General{[Name="FinancialFiles"]}[Content],
+    #"Filtered Hidden Files1" = Table.SelectRows(FinancialFiles, each [Attributes]?[Hidden]? <> true),
+    #"Invoke Custom Function1" = Table.AddColumn(#"Filtered Hidden Files1", "Transform File", each #"Transform File"([Content])),
+    #"Renamed Columns1" = Table.RenameColumns(#"Invoke Custom Function1", {"Name", "Source.Name"}),
+    #"Removed Other Columns1" = Table.SelectColumns(#"Renamed Columns1", {"Source.Name", "Transform File"}),
+    #"Expanded Table Column1" = Table.ExpandTableColumn(#"Removed Other Columns1", "Transform File", Table.ColumnNames(#"Transform File"(#"Sample File"))),
+    #"Changed Type" = Table.TransformColumnTypes(#"Expanded Table Column1",{{"Source.Name", type text}, {"Segment", type text}, {"Country", type text}, {"Product", type text}, {"Discount Band", type text}, {"Units Sold", type number}, {"Manufacturing Price", Int64.Type}, {"Sale Price", Int64.Type}, {"Gross Sales", type number}, {"Discounts", type number}, {" Sales", type number}, {"COGS", type number}, {"Profit", type number}, {"Date", type date}, {"Month Number", Int64.Type}, {"Month Name", type text}, {"Year", Int64.Type}})
+in
+    #"Changed Type"
+```
+
+## 4. Links and more information
+
+I recommend you watch Wyn Hopkins' video on Youtube, which explains the same process, but with PowerQuery used in Excel: https://www.youtube.com/watch?v=-XE7HEZbQiY.
+
+In addition, Wyn is using a few tricks that makes the process clearer to understand, and makes it also easier to change the destination folder in case you want to move your files in a different folder  in Sharepoint.
