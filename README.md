@@ -139,7 +139,7 @@ Start placing your visuals on the PBI canvas:
 ![Alt text](media/image-28.png)
 
 
-At this point, every time you update the files or add new files (with the same structure), you can refresh the data in PowerBI, and it will automatically get the new data from the Sharepoint folder !
+At this point, every time you update the files or add new files (with the same table or sheet structure), you can refresh the data in PowerBI, and it will automatically get the new data from the Sharepoint folder !
 
 > NOTE: I recomment you watch Wyn Hopkins' video on Youtube, which explains the same process, but with PowerQuery used in Excel: https://www.youtube.com/watch?v=-XE7HEZbQiY.
 >
